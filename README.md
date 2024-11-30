@@ -31,7 +31,7 @@ Python 3.x (Recommended: Python 3.8 or newer)
 
 # Dependencies
 * PyTorch: For training and evaluating the models.
-* torchvision: For the pre-trained ResNet18 model and dataset utilities.
+* torchvision: For the pre-trained ResNet model and dataset utilities.
 * numpy: For numerical operations.
 * matplotlib: For any optional plotting (not used directly in this code, but useful for visualizing training).
 
@@ -51,7 +51,7 @@ python train.py
 This will:
 
 * Load the MNIST dataset (training and testing sets).
-* Train the ResNet18ForMNIST model (ResNet18 with some modifications for MNIST).
+* Train the ResNetForMNIST model (ResNet with some modifications for MNIST).
 * Optionally, train the HybridModel model by modifying the code to include this model class.
 * Output training statistics and test accuracy after the training loop.
 
@@ -61,11 +61,12 @@ This will:
 * After training, the model will be evaluated on the test set, and the best model (based on test accuracy) will be saved as best_resnet18_model.pth.
 
 # Model Details
-1. ResNet18ForMNIST (Pre-trained ResNet18 for MNIST)
-* Architecture: Uses a pre-trained ResNet18 model from torchvision.models, with modifications to:
+**1. ResNetForMNIST (Pre-trained ResNet for MNIST)**
+* Architecture: Uses a pre-trained ResNet model from torchvision.models, with modifications to:
 * Adapt the first convolutional layer to accept single-channel grayscale images (28x28 pixels).
 * Change the final fully connected layer to output 10 classes (corresponding to the 10 MNIST digits).
-2. HybridModel
+
+**2. HybridModel**
 * Architecture: A custom hybrid model with a simplified ResNet-like backbone.
 * SimpleResNet: A custom module that uses convolutional layers with batch normalization, followed by a two-layer ResNet-style structure.
 * Classifier: A fully connected classifier that flattens the output of the feature extractor and feeds it through a couple of linear layers to output 10 classes.
